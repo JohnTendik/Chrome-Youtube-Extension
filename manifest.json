@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+
+  "name": "Easy YT Search",
+  "description": "This extension allows the user to search youtube queries in a new tab.",
+  "version": "1.0",
+
+  "background": {
+    "scripts": ["backg.js"],
+    "persistent": false
+  },
+
+  "permissions" : [
+    "declarativeContent",
+    "activeTab",
+    "webNavigation"
+  ],
+  "page_action" :
+  {
+    "default_icon" : "images/search.png",
+    "default_title" : "Toggle YouTube comments"
+  },
+  "content_scripts":
+  [
+      {
+          "matches": ["*://*.youtube.com/*"],
+          "js": ["content.js"],
+          "run_at": "document_end"
+      }
+  ]
+}
